@@ -7,6 +7,5 @@ jobs:
      runs-on: ubuntu-latest
      steps:
       - name: Publish Report
-        run: |
            echo "Hello"
            echo "Kumaresan"
