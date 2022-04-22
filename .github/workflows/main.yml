@@ -8,5 +8,5 @@ jobs:
      steps:
       - name: Publish Report
         run : 
-           hardcoded_aws_response= "Hello Kumaresan"
+           hardcoded_aws_response= $("Hello Kumaresan")
            echo $hardcoded_aws_response
