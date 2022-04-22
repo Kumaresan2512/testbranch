@@ -1,12 +1,12 @@
 name: "exampleReport"
 on: [push]
-
+env:
+  hardcoded_aws_response: "Hello Kumaresan"
 jobs:
   # make sure the action works on a clean machines without building
   test_aws_response:
      runs-on: ubuntu-latest
      steps:
       - name: Publish Report
-        run : 
-           hardcoded_aws_response= $("Hello Kumaresan")
+        run :
            echo $hardcoded_aws_response
