@@ -32,6 +32,7 @@ jobs:
           #find . -name xcode.txt
           #find . -name alluo.txt
           
-          find ./Users/runner/work/testbranch/testbranch/Users/runner/Library/Developer/Xcode/DerivedData -name alluo.txt
+          find ./Users/runner/Library/Developer/Xcode/DerivedData -name alluo.txt
+          find ./runner/Library/Developer/Xcode/DerivedData -name alluo.txt
           echo "heee"
 
