@@ -28,3 +28,8 @@ jobs:
           find ${{ github.workspace }} -name *.txt
           find /Users/runner/work/testbranch/testbranch/Users/runner/Library/Developer/Xcode/DerivedData/Alluo-gxbtvocshxocwqeunjvfradwcsvv/Build/Products/Debug-iphonesimulator -name *.txt
           echo "end file search"
+          
+          find . -name xcode.txt
+          find . -name alluo.txt
+          echo "heee"
+
