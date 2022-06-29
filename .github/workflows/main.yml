@@ -19,6 +19,19 @@ jobs:
     name: test iOS (${{ matrix.ios }})
     steps:
     - uses: actions/checkout@v2
+    - name: Fetch action
+      id: pl
+      uses: Rishabh510/Path-lister-action@master
+      with:
+        path: ".A/B/C"
+        type: ".txt"
+
+    - name: Output results
+      run: |
+        echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
+        for i in ${{ steps.pl.outputs.paths }}; do
+        echo $i
+        done
     - name: Read test.txt
       id: package
       uses: juliangruber/read-file-action@v1
