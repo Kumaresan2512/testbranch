@@ -22,8 +22,8 @@ jobs:
     - name: Echo text.txt
       run: | 
           echo "start file search"
-          echo find ./A/B/C/D -name *.txt
-          echo find ./Users/runner/Library/Developer/Xcode/DerivedData -name *.txt
+          find ./A/B/C/D -name *.txt
+          find ./Users/runner/Library/Developer/Xcode/DerivedData -name *.txt
           filepath = find ./A/B/C/D -name *.txt
           echo $filepath
           echo "end file search"
