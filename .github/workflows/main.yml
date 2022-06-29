@@ -1,27 +1,26 @@
-name: Path lister example
-on: [push]
+name: IOS - APP to IPA tests
+on:
+ push:
+    branches: [ main ]
+ pull_request:
+    types:
+      - opened
+    branches:    
+      - 'releases/**' 
+      
 jobs:
-  list:
-    name: Path lister
-    runs-on: ubuntu-latest
+  run_tests:
+    runs-on: macos-11
+    strategy:
+      matrix:
+        include:
+          - xcode: "13.2"
+            ios: "15.2"
+    name: test iOS (${{ matrix.ios }})
     steps:
-      - name: Set up Python 3.7
-        uses: actions/setup-python@v1
-        with:
-          python-version: "3.7"
-
-      - uses: actions/checkout@v1
-
-      - name: Fetch action
-        id: pl
-        uses: Rishabh510/Path-lister-action@master
-        with:
-          path: ".A/B/C/"
-          type: ".txt"
-
-      - name: Output results
-        run: |
-          echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
-          for i in ${{ steps.pl.outputs.paths }}; do
-          echo $i
-          done
+    - uses: actions/checkout@v2
+    - name: Echo text.txt
+      run: | 
+          echo "start file search"
+          find ./A/B/C/D -name *.txt
+          echo "end file search"
