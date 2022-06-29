@@ -1,41 +1,27 @@
-name: IOS - APP to IPA tests
-on:
- push:
-    branches: [ Kumaresan ]
- pull_request:
-    types:
-      - opened
-    branches:    
-      - 'releases/**' 
-      
+name: Path lister example
+on: [push]
 jobs:
-  run_tests:
-    runs-on: macos-11
-    strategy:
-      matrix:
-        include:
-          - xcode: "13.2"
-            ios: "15.2"
-    name: test iOS (${{ matrix.ios }})
+  list:
+    name: Path lister
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Fetch action
-      id: pl
-      uses: Rishabh510/Path-lister-action@master
-      with:
-        path: ".A/B/C"
-        type: ".txt"
+      - name: Set up Python 3.7
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.7"
 
-    - name: Output results
-      run: |
-        echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
-        for i in ${{ steps.pl.outputs.paths }}; do
-        echo $i
-        done
-    - name: Read test.txt
-      id: package
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./A/B/C/D/1233333/**/test.txt
-    - name: Echo text.txt
-      run: echo "${{ steps.package.outputs.content }}"
+      - uses: actions/checkout@v1
+
+      - name: Fetch action
+        id: pl
+        uses: Rishabh510/Path-lister-action@master
+        with:
+          path: ".A/B/C/"
+          type: ".txt"
+
+      - name: Output results
+        run: |
+          echo "Found ${{ steps.pl.outputs.path_count }} file(s) with this extension:"
+          for i in ${{ steps.pl.outputs.paths }}; do
+          echo $i
+          done
