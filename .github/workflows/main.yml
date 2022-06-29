@@ -19,23 +19,10 @@ jobs:
     name: test iOS (${{ matrix.ios }})
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/cache@v2
+    - name: Read test.txt
+      id: package
+      uses: juliangruber/read-file-action@v1
       with:
-        path: Pods
-        key: $('/Users/runner/work/mobile-app-account-holders/mobile-app-account-holders/ios/Podfile.lock')
-        restore-keys: |
-          ${{ runner.os }}-pods-
-    - name: CocoaPod Install
-      run: |
-        echo "default dire"
-        ls
-        echo "default dire1"
-        mkdir -p ios/iphoneos/Payload
-        mv /Users/runner/work/appToIpa/appToIpa/Alluo.app ios/iphoneos/Payload
-        ls -R
-        echo "before zip"
-        cd ios/iphoneos
-        zip -r Alluo.ipa Payload
-        rm -rf Payload
-        echo "list of dir"
-        ls -R
+        path: ./A/B/C/D/1233333/**/test.txt
+    - name: Echo text.txt
+      run: echo "${{ steps.package.outputs.content }}"
