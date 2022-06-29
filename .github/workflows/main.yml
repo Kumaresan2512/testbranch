@@ -1,7 +1,7 @@
 name: IOS - APP to IPA tests
 on:
  push:
-    branches: [ main ]
+    branches: [ Kumaresan ]
  pull_request:
     types:
       - opened
