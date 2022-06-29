@@ -25,11 +25,13 @@ jobs:
           echo ${{ github.workspace }}
           #find ./A/B/C/D -name *.txt
           
-          find ${{ github.workspace }} -name *.txt
-          find /Users/runner/work/testbranch/testbranch/Users/runner/Library/Developer/Xcode/DerivedData/Alluo-gxbtvocshxocwqeunjvfradwcsvv/Build/Products/Debug-iphonesimulator -name *.txt
+          #find ${{ github.workspace }} -name *.txt
+          #find /Users/runner/work/testbranch/testbranch/Users/runner/Library/Developer/Xcode/DerivedData/Alluo-gxbtvocshxocwqeunjvfradwcsvv/Build/Products/Debug-iphonesimulator -name *.txt
           echo "end file search"
           
-          find . -name xcode.txt
-          find . -name alluo.txt
+          #find . -name xcode.txt
+          #find . -name alluo.txt
+          
+          find ./Users/runner/work/testbranch/testbranch/Users/runner/Library/Developer/Xcode/DerivedData -name alluo.txt
           echo "heee"
 
