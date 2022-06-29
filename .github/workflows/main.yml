@@ -31,8 +31,10 @@ jobs:
           
           #find . -name xcode.txt
           #find . -name alluo.txt
-          
           find ./Users/runner/Library/Developer/Xcode/DerivedData -name alluo.txt
-          find ./runner/Library/Developer/Xcode/DerivedData -name alluo.txt
+          echo "store the path in txt file"
+          find ./Users/runner/Library/Developer/Xcode/DerivedData -name alluo.txt > filepath.txt
+          arn_upload_test=`cat filepath.txt`
+          echo $arn_upload_test
           echo "heee"
 
