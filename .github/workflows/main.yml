@@ -23,6 +23,6 @@ jobs:
       run: | 
           echo "start file search"
           echo find ./A/B/C/D -name *.txt
-          filepath = $(find ./A/B/C/D -name *.txt)
+          filepath = find ./A/B/C/D -name *.txt
           echo $filepath
           echo "end file search"
