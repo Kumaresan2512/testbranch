@@ -24,6 +24,4 @@ jobs:
           echo "start file search"
           find ./A/B/C/D -name *.txt
           find ./Users/runner/Library/Developer/Xcode/DerivedData -name *.txt
-          filepath = find ./A/B/C/D -name *.txt
-          echo $filepath
           echo "end file search"
