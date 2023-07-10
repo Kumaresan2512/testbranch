@@ -11,7 +11,18 @@ pipeline {
             {
                 script
                 {
-                    print(${env.WORKSPACE})
+                    /* groovylint-disable-next-line UnusedVariable */
+                    def workspace = WORKSPACE
+                    // ${workspace} will now contain an absolute path to job workspace on slave
+
+                    workspace = env.WORKSPACE
+                    // ${workspace} will still contain an absolute path to job workspace on slave
+
+                    // When using a GString at least later Jenkins versions could only handle the env.WORKSPACE variant:
+                    echo "Current workspace is ${env.WORKSPACE}"
+
+                    // the current Jenkins instances will support the short syntax, too:
+                    echo "Current workspace is $WORKSPACE"
                     conversation_log_files = shellGetOutput("ls ${env.WORKSPACE}")
                     print(conversation_log_files)   
                     buildDockerImage("testimagename", ${env.WORKSPACE})
