@@ -13,7 +13,7 @@ pipeline {
                 print(conversation_log_files)
                 script
                 {
-                    buildDockerImage("testimagename", "./languagetool")
+                    buildDockerImage("testimagename", "/languagetool")
                 }
             }
         }
