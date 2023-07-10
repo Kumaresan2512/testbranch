@@ -9,7 +9,8 @@ pipeline {
         {
             steps
             {
-                sh 'echo "Hello world!  asagit"'
+                conversation_log_files = shellGetOutput("ls .")
+                print(conversation_log_files)
                 script
                 {
                     buildDockerImage("testimagename", ".")
@@ -19,6 +20,9 @@ pipeline {
     }
 }
 
+def shellGetOutput(cmd) {
+    return sh(script: cmd, returnStdout: true).trim()
+}
 
 def buildDockerImage(image, dockerfilePath) {
     sh """
