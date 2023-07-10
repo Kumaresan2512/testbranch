@@ -11,9 +11,10 @@ pipeline {
             {
                 script
                 {
-                    conversation_log_files = shellGetOutput("ls /")
+                    print(${env.WORKSPACE})
+                    conversation_log_files = shellGetOutput("ls ${env.WORKSPACE}")
                     print(conversation_log_files)   
-                    buildDockerImage("testimagename", "/")
+                    buildDockerImage("testimagename", ${env.WORKSPACE})
                 }
             }
         }
