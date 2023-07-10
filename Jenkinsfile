@@ -24,8 +24,8 @@ pipeline {
                     // the current Jenkins instances will support the short syntax, too:
                     echo "Current workspace is $WORKSPACE"
                     conversation_log_files = shellGetOutput("ls ${env.WORKSPACE}")
-                    print(conversation_log_files)   
-                    buildDockerImage("testimagename", env.WORKSPACE)
+                    print(conversation_log_files)
+                    buildDockerImage("testimagename", workspace)
                 }
             }
         }
