@@ -11,9 +11,9 @@ pipeline {
             {
                 script
                 {
-                    conversation_log_files = shellGetOutput("ls /languagetool")
+                    conversation_log_files = shellGetOutput("ls /")
                     print(conversation_log_files)   
-                    buildDockerImage("testimagename", "/languagetool")
+                    buildDockerImage("testimagename", "/")
                 }
             }
         }
