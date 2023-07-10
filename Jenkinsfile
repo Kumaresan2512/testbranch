@@ -25,7 +25,7 @@ pipeline {
                     echo "Current workspace is $WORKSPACE"
                     conversation_log_files = shellGetOutput("ls ${env.WORKSPACE}")
                     print(conversation_log_files)   
-                    buildDockerImage("testimagename", ${env.WORKSPACE})
+                    buildDockerImage("testimagename", env.WORKSPACE)
                 }
             }
         }
