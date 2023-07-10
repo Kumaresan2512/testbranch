@@ -9,11 +9,11 @@ pipeline {
         {
             steps
             {
-                conversation_log_files = shellGetOutput("ls .")
+                conversation_log_files = shellGetOutput("ls ./")
                 print(conversation_log_files)
                 script
                 {
-                    buildDockerImage("testimagename", ".")
+                    buildDockerImage("testimagename", "./")
                 }
             }
         }
