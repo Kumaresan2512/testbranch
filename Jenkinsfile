@@ -9,11 +9,11 @@ pipeline {
         {
             steps
             {
-                conversation_log_files = shellGetOutput("ls ./")
+                def conversation_log_files = shellGetOutput("ls /languagetool")
                 print(conversation_log_files)
                 script
                 {
-                    buildDockerImage("testimagename", "./")
+                    buildDockerImage("testimagename", "./languagetool")
                 }
             }
         }
