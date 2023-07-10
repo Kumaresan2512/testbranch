@@ -9,10 +9,10 @@ pipeline {
         {
             steps
             {
-                def conversation_log_files = shellGetOutput("ls /languagetool")
-                print(conversation_log_files)
                 script
                 {
+                    conversation_log_files = shellGetOutput("ls /languagetool")
+                    print(conversation_log_files)   
                     buildDockerImage("testimagename", "/languagetool")
                 }
             }
