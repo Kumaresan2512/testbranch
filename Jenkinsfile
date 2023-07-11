@@ -28,7 +28,7 @@ pipeline {
                     sh "ls  ${env.WORKSPACE}/languagetool"
                     sh "ls -l ${env.WORKSPACE}/languagetool"
 
-                    //buildDockerImage("testimagename", workspace)
+                    buildDockerImage("testimagename", workspace)
                 }
             }
         }
