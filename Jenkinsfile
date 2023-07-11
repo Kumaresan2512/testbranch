@@ -25,6 +25,9 @@ pipeline {
                     echo "Current workspace is $WORKSPACE"
                     conversation_log_files = shellGetOutput("ls ${env.WORKSPACE}")
                     print(conversation_log_files)
+                    sh "ls  ${env.WORKSPACE}/languagetool"
+                    sh "ls -l ${env.WORKSPACE}/languagetool"
+
                     //buildDockerImage("testimagename", workspace)
                 }
             }
