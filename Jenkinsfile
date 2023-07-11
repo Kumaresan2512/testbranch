@@ -9,7 +9,6 @@ pipeline {
         {
             steps
             {
-                sh 'docker --version'
                 script
                 {
                     /* groovylint-disable-next-line UnusedVariable */
